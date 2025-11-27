@@ -25,7 +25,7 @@ $("#perm").textContent = Notification.permission;
 // Registramos el Service Worker
 let swReg;
 if ('serviceWorker' in navigator) {
-  swReg = await navigator.serviceWorker.register('./firebase-messaging-sw.js');
+  swReg = await navigator.serviceWorker.register('./firebase-messaging-sw.js', { scope: './'});
   console.log('SW registrado:', swReg.scope);
 }
 
@@ -91,4 +91,5 @@ if (messaging) {
 
 // Conectamos el botón con la función
 $("#btn-permission").addEventListener("click", requestPermissionAndGetToken);
+
 
