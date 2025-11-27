@@ -19,7 +19,7 @@ messaging.onBackgroundMessage((payload) => {
   const title = payload.notification?.title || "Notificación";
   const options = {
     body: payload.notification?.body || "",
-    icon: "/icon-192.png"
+    icon: "./icon-192.png"
   };
   self.registration.showNotification(title, options);
 });
@@ -28,4 +28,5 @@ messaging.onBackgroundMessage((payload) => {
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
   event.waitUntil(clients.openWindow('/'));
+
 });
